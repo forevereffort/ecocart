@@ -5,6 +5,7 @@ namespace Flynt\Components\SiteFooter;
 use Timber;
 use Flynt\Utils\Options;
 use Flynt\Utils\Asset;
+use Timber\Menu;
 
 add_action('init', function () {
     register_nav_menus([
@@ -14,8 +15,8 @@ add_action('init', function () {
 });
 
 add_filter('Flynt/addComponentData?name=SiteFooter', function ($data) {
-    $data['footer_menu_1'] = new Timber\Menu('footer_menu_1');
-    $data['footer_menu_2'] = new Timber\Menu('footer_menu_2');
+    $data['footer_menu_1'] = new Menu('footer_menu_1');
+    $data['footer_menu_2'] = new Menu('footer_menu_2');
 
     $data['facebook_url'] = Options::getGlobal('Footer Settings', 'facebook_url');
     $data['twitter_url'] = Options::getGlobal('Footer Settings', 'twitter_url');
